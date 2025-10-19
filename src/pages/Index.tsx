@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 import ScenarioSimulator from '@/components/ScenarioSimulator';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const [activeSimulator, setActiveSimulator] = useState<{ id: number; title: string } | null>(null);
@@ -109,10 +110,12 @@ const Index = () => {
             <Icon name="Play" className="mr-2" size={20} />
             Попробовать бесплатно
           </Button>
-          <Button size="lg" variant="outline">
-            <Icon name="FileText" className="mr-2" size={20} />
-            Узнать больше
-          </Button>
+          <Link to="/documentation">
+            <Button size="lg" variant="outline">
+              <Icon name="FileText" className="mr-2" size={20} />
+              Узнать больше
+            </Button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-3xl mx-auto">
@@ -330,18 +333,18 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-3">Платформа</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Сценарии</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Тарифы</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Документация</a></li>
+                <li><Link to="/" className="hover:text-primary transition-colors">Сценарии</Link></li>
+                <li><Link to="/pricing" className="hover:text-primary transition-colors">Тарифы</Link></li>
+                <li><Link to="/documentation" className="hover:text-primary transition-colors">Документация</Link></li>
               </ul>
             </div>
             
             <div>
               <h4 className="font-semibold mb-3">Сотрудничество</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Для вузов</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Для предприятий</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Партнёрам</a></li>
+                <li><Link to="/universities" className="hover:text-primary transition-colors">Для вузов</Link></li>
+                <li><Link to="/enterprises" className="hover:text-primary transition-colors">Для предприятий</Link></li>
+                <li><Link to="/universities" className="hover:text-primary transition-colors">Партнёрам</Link></li>
               </ul>
             </div>
             
