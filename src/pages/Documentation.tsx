@@ -43,43 +43,7 @@ const Documentation = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {[
-            {
-              icon: 'Rocket',
-              title: 'Быстрый старт',
-              description: 'Начните работу за 5 минут',
-              color: 'from-blue-500 to-blue-600'
-            },
-            {
-              icon: 'Users',
-              title: 'Для преподавателей',
-              description: 'Управление группами и аналитика',
-              color: 'from-green-500 to-green-600'
-            },
-            {
-              icon: 'Code',
-              title: 'API документация',
-              description: 'Интеграция и автоматизация',
-              color: 'from-purple-500 to-purple-600'
-            }
-          ].map((category, i) => (
-            <Card key={i} className="border-2 hover:border-primary/50 transition-all cursor-pointer hover:shadow-lg">
-              <CardHeader>
-                <div className={`w-12 h-12 bg-gradient-to-br ${category.color} rounded-xl flex items-center justify-center mb-3`}>
-                  <Icon name={category.icon as any} className="text-white" size={24} />
-                </div>
-                <CardTitle className="text-xl">{category.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">{category.description}</p>
-                <Button variant="outline" size="sm" className="w-full">
-                  Читать →
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+
 
         <div className="grid md:grid-cols-2 gap-8">
           <div>
