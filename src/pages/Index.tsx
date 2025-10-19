@@ -4,9 +4,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import Icon from '@/components/ui/icon';
+import ScenarioSimulator from '@/components/ScenarioSimulator';
 
 const Index = () => {
   const [selectedScenario, setSelectedScenario] = useState<number | null>(null);
+  const [activeSimulator, setActiveSimulator] = useState<{ id: number; title: string } | null>(null);
 
   const scenarios = [
     {
@@ -217,6 +219,10 @@ const Index = () => {
                             ? 'bg-gradient-to-r from-primary to-primary/80' 
                             : 'bg-gradient-to-r from-accent to-accent/80'
                         }`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveSimulator({ id: scenario.id, title: scenario.title });
+                        }}
                       >
                         {scenario.progress > 0 ? 'Продолжить' : 'Начать сценарий'}
                         <Icon name="ArrowRight" className="ml-2" size={18} />
@@ -292,6 +298,14 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {activeSimulator && (
+        <ScenarioSimulator 
+          scenarioId={activeSimulator.id}
+          scenarioTitle={activeSimulator.title}
+          onClose={() => setActiveSimulator(null)}
+        />
+      )}
     </div>
   );
 };
